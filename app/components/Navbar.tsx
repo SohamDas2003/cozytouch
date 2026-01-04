@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { CALL_LINK } from "../constants";
 import logo from "../../public/logo.png";
+import Reveal from "./Reveal";
 
 export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -16,35 +17,39 @@ export default function Navbar() {
 	];
 
 	return (
-		<nav className="fixed top-0 left-0 right-0 z-50 bg-[#F6F1E8]/95 backdrop-blur-sm border-b border-[#EADFCC]">
+		<nav className="fixed top-0 left-0 right-0 z-50 bg-[#F6F1E8]/95 backdrop-blur-sm border-b border-[#EADFCC] transition-shadow duration-300">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-20">
 					{/* Logo */}
-					<div className="flex items-center space-x-2">
+					<Reveal
+						className="flex items-center space-x-2"
+						delay={60}>
 						<Image
 							src={logo}
 							alt="CozyTouch Logo"
 							width={200}
 							height={100}
 						/>
-					</div>
+					</Reveal>
 
 					{/* Desktop Menu */}
-					<div className="hidden md:flex items-center space-x-8">
+					<Reveal
+						className="hidden md:flex items-center space-x-8"
+						delay={140}>
 						{navItems.map((item) => (
 							<a
 								key={item.href}
 								href={item.href}
-								className="text-[#77716B] hover:text-[#C47A5A] transition-colors duration-200">
+								className="text-[#77716B] hover:text-[#C47A5A] transition-colors duration-200 transform hover:-translate-y-0.5 link-underline">
 								{item.label}
 							</a>
 						))}
 						<a
 							href={CALL_LINK}
-							className="bg-[#C47A5A] text-white px-6 py-2 rounded-full text-sm hover:bg-[#B36A4A] transition-all duration-300 inline-block">
+							className="bg-[#C47A5A] text-white px-6 py-2 rounded-full text-sm hover:bg-[#B36A4A] transition-all duration-300 inline-block card-lift">
 							Book Now
 						</a>
-					</div>
+					</Reveal>
 
 					{/* Mobile Menu Button */}
 					<button
@@ -83,14 +88,14 @@ export default function Navbar() {
 							key={item.href}
 							href={item.href}
 							onClick={() => setIsOpen(false)}
-							className="text-[#3A3A3A] hover:text-[#C47A5A] transition-colors text-lg">
+							className="text-[#3A3A3A] hover:text-[#C47A5A] transition-colors text-lg transform hover:-translate-y-0.5 link-underline">
 							{item.label}
 						</a>
 					))}
 					<a
 						href={CALL_LINK}
 						onClick={() => setIsOpen(false)}
-						className="bg-[#C47A5A] text-white px-6 py-3 rounded-full text-base hover:bg-[#B36A4A] transition-all duration-300 inline-block text-center">
+						className="bg-[#C47A5A] text-white px-6 py-3 rounded-full text-base hover:bg-[#B36A4A] transition-all duration-300 inline-block text-center card-lift">
 						Book Now
 					</a>
 				</div>

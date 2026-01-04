@@ -1,14 +1,15 @@
 import Image from "next/image";
 
-import deeptissue from "../../public/deeptissue.jpg"
-import aromatherapy from "../../public/aromatherapy.jpg"
-import swedish from "../../public/swedish.jpg"
-import backmassage from "../../public/backmassage.jpg"
-import fullbody from "../../public/fullbody.jpg"
-import footmassage from "../../public/footmassage.jpg"
-import manicure from "../../public/manicure.jpg"
-import pedicure from "../../public/pedicure.jpg"
-import headoil from "../../public/headoil.jpg"
+import deeptissue from "../../public/deeptissue.jpg";
+import aromatherapy from "../../public/aromatherapy.jpg";
+import swedish from "../../public/swedish.jpg";
+import backmassage from "../../public/backmassage.jpg";
+import fullbody from "../../public/fullbody.jpg";
+import footmassage from "../../public/footmassage.jpg";
+import manicure from "../../public/manicure.jpg";
+import pedicure from "../../public/pedicure.jpg";
+import headoil from "../../public/headoil.jpg";
+import Reveal from "./Reveal";
 
 const services = [
 	{
@@ -118,14 +119,17 @@ export default function Services() {
 			id="services"
 			className="py-20 px-4 bg-[#EADFCC]">
 			<div className="max-w-6xl mx-auto">
-				<h2 className="text-4xl font-light text-[#3A3A3A] text-center mb-16">
-					Our Services
-				</h2>
+				<Reveal>
+					<h2 className="text-4xl font-light text-[#3A3A3A] text-center mb-16">
+						Our Services
+					</h2>
+				</Reveal>
 				<div className="grid md:grid-cols-3 gap-8">
-					{services.map((service) => (
-						<div
+					{services.map((service, index) => (
+						<Reveal
 							key={service.id}
-							className="bg-[#F6F1E8] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+							className="bg-[#F6F1E8] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 card-lift"
+							delay={index * 90}>
 							<div className="relative h-64">
 								<Image
 									src={service.image}
@@ -147,7 +151,7 @@ export default function Services() {
 									{service.duration} - {service.price}
 								</p>
 							</div>
-						</div>
+						</Reveal>
 					))}
 				</div>
 			</div>

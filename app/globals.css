@@ -42,6 +42,87 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* Micro-animations */
+@keyframes float-slow {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-8px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-up-soft {
+	0% {
+		opacity: 0;
+		transform: translateY(18px) scale(0.99);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes pulse-glow {
+	0% {
+		opacity: 0.18;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.3;
+		transform: scale(1.04);
+	}
+	100% {
+		opacity: 0.18;
+		transform: scale(1);
+	}
+}
+
+.animate-fade-up {
+	animation: fade-up-soft 0.8s ease-out both;
+}
+
+.reveal-hidden {
+	opacity: 0;
+	transform: translateY(16px);
+}
+
+.reveal-visible {
+	animation: fade-up-soft 0.85s ease-out both;
+}
+
+.animate-float-slow {
+	animation: float-slow 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+	animation: pulse-glow 5s ease-in-out infinite;
+}
+
+.card-lift {
+	transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.card-lift:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+.link-underline {
+	background-image: linear-gradient(currentColor, currentColor);
+	background-position: 0 100%;
+	background-repeat: no-repeat;
+	background-size: 0% 1px;
+	transition: background-size 200ms ease;
+}
+
+.link-underline:hover {
+	background-size: 100% 1px;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
 	width: 10px;

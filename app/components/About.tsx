@@ -1,5 +1,6 @@
 import Image from "next/image";
 import about from "../../public/about.jpg";
+import Reveal from "./Reveal";
 
 export default function About() {
 	return (
@@ -8,7 +9,7 @@ export default function About() {
 			className="py-20 px-4">
 			<div className="max-w-6xl mx-auto">
 				<div className="grid md:grid-cols-2 gap-12 items-center">
-					<div>
+					<Reveal delay={80}>
 						<h2 className="text-4xl font-light text-[#3A3A3A] mb-6">
 							Home Spa, Done Right
 						</h2>
@@ -22,15 +23,17 @@ export default function About() {
 							Open daily from 8AM to 11PM, we make relaxation convenient and
 							safe, so you can recharge without leaving home.
 						</p>
-					</div>
-					<div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-						<Image
-							src={about}
-							alt="Peaceful spa interior"
-							fill
-							className="object-cover"
-						/>
-					</div>
+					</Reveal>
+					<Reveal delay={180}>
+						<div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+							<Image
+								src={about}
+								alt="Peaceful spa interior"
+								fill
+								className="object-cover"
+							/>
+						</div>
+					</Reveal>
 				</div>
 			</div>
 		</section>

@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const testimonials = [
 	{
 		quote:
@@ -17,7 +19,7 @@ const testimonials = [
 	{
 		quote:
 			"Deep tissue session released weeks of back stiffness. The therapist customized it exactly to my problem areas.",
-		author: "Arjun V., Navi Mumbai",
+		author: "Arjun V., Colaba",
 	},
 ];
 
@@ -27,21 +29,24 @@ export default function Testimonials() {
 			id="testimonials"
 			className="py-20 px-4 bg-[#EADFCC]">
 			<div className="max-w-4xl mx-auto text-center">
-				<h2 className="text-4xl font-light text-[#3A3A3A] mb-16">
-					What Our Clients Say
-				</h2>
+				<Reveal>
+					<h2 className="text-4xl font-light text-[#3A3A3A] mb-16">
+						What Our Clients Say
+					</h2>
+				</Reveal>
 				<div className="grid md:grid-cols-2 gap-8">
 					{testimonials.map((testimonial, index) => (
-						<div
+						<Reveal
 							key={index}
-							className="bg-[#F6F1E8] p-8 rounded-2xl shadow-lg">
+							className="bg-[#F6F1E8] p-8 rounded-2xl shadow-lg card-lift"
+							delay={index * 120}>
 							<p className="text-[#77716B] text-lg italic mb-4">
 								&quot;{testimonial.quote}&quot;
 							</p>
 							<p className="text-[#C47A5A] font-semibold">
 								- {testimonial.author}
 							</p>
-						</div>
+						</Reveal>
 					))}
 				</div>
 			</div>
